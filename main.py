@@ -34,12 +34,6 @@ class PyDrumsApp:
         self.bpm = self.sequencer.bpm
         self.instruments = self.sequencer.instruments
         
-        # """clicked and active_list are aliases (deep copies managed when changing)"""
-        self.clicked = self.sequencer.grid
-        self.active_list = self.sequencer.active_list
-        self.active_beat = self.sequencer.active_beat
-        self.active_length = self.sequencer.active_length
-
         # """Other app-level state variables""" 
         self.beat_changed = True
         self.timer = pygame.time.Clock()
@@ -199,7 +193,7 @@ class PyDrumsApp:
             # """draw bottom menu and get control rects"""
             controls = self.ui_manager.draw_bottom_menu(self.beats, self.bpm, self.playing)
 
-            # """If beat changed flag: play notes then clear flag (original semantics)"""
+            # """If beat changed flag: play notes then clear flag"""
             if self.beat_changed:
                 self.play_notes()
                 self.beat_changed = False
@@ -308,7 +302,7 @@ class PyDrumsApp:
                             if self.save_menu:
                                 self.typing = not self.typing
                             if self.load_menu:
-                                # """replicate original index calculation"""
+                                # """index calculation"""
                                 self.index = (pos[1] - 100) // 50
                     # """delegate to specific menu handlers (polymorphism)"""
                     if self.save_menu:
@@ -344,7 +338,7 @@ class PyDrumsApp:
                     self.active_beat = self.sequencer.active_beat
             # """flip display"""
             pygame.display.flip()
-        # """on exit: write saved_beats back to file (preserve original behaviour)"""
+        # """on exit: write saved_beats back to file"""
         try:
             with open('saved_beats.txt', 'w', encoding='utf-8') as file:
                 for i in range(len(self.saved_beats)):

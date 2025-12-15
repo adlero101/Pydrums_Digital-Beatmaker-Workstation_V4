@@ -100,7 +100,7 @@ The logic within this module is responsible for accurately driving the timing an
             beat_length = 3600 // self.bpm if self.bpm > 0 else 1
         except Exception:
             beat_length = 1
-        # Use integer like the original
+        # Use integer 
         if self.active_length < beat_length:
             self.active_length += 1
             return False

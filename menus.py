@@ -182,7 +182,7 @@ class LoadMenu(BaseMenu):
             
         # """Draw the list of saved beats."""
         for i, raw in enumerate(saved_beats):
-            if i < 10:  # """Limit to first 10 entries as per original logic."""
+            if i < 20:  # """Limit to first 10 entries as per original logic."""
                 try:
                     # """Attempt to parse the beat name from the structured string."""
                     name_index_start = raw.index('name: ') + 6

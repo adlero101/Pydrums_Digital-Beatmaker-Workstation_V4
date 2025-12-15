@@ -16,7 +16,7 @@ class PresetManager:
         Initializes the manager with a deep copy of the preset data dictionary.
 
         :param preset_dictionary: A dictionary containing preset names as keys 
-                                  and beat data (beats, bpm, pattern) as values.
+        and beat data (beats, bpm, pattern) as values.
         :raises TypeError: If the input is not a dictionary.
         """
         if not isinstance(preset_dictionary, dict):
