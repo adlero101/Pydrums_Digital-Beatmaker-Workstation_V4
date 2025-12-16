@@ -39,3 +39,5 @@ PyDrums/
 
 4. Run the application
    ``` python main.py```
+
+
